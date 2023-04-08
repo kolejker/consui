@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap"
+  rel="stylesheet"
+/>
+<html>
+  <head>
+    <title>In-game overlay</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <body>
+    <div class="title-container">
+      <label>
+        <h1><span id="clock"></span></h1>
+        
+    </div>
+    <div class="pill-container">
+      <div class="search-icon"></div>
+      <div class="settings-icon"></div>
+      <div class="apps-icon"></div>
+      <div class="profile-icon"></div>
+    </div>
+
+    <form>
+      <input id="searchInput" type="text" placeholder="Search..." />
+    </form>
+    <ul id="linkList"></ul>
+    <div class="bottom-bar">
+      <button class="back-btn"><img src="controller.png" />Back</button>
+    </div>
+    <script src="clock.js"></script>
+    <script src="list.js"></script>
+  </body>
+</html>

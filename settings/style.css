@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  background: rgb(0, 26, 57);
+  background: linear-gradient(0deg, rgb(0, 14, 31) 0%, rgb(0, 10, 22) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+.game-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 7%;
+  background-color: #00063f;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.game-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.game-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.game-options {
+  display: flex;
+  flex-direction: row;
+}
+
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #002a5a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container {
+  padding-left: 70px;
+  padding-bottom: 0px;
+  font-size: 30px;
+  margin: 0;
+  flex-direction: row;
+}
+
+.pill-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 6%;
+  right: 4%;
+  height: 40px;
+  width: 200px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 5px;
+}
+
+.search-icon {
+  background-image: url("icns/search.png");
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+  background-size: cover;
+}
+
+.settings-icon {
+  background-image: url("icns/settings.png");
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+}
+
+.apps-icon {
+  background-image: url("icns/apps.png");
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+}
+
+.profile-icon {
+  right: 0%;
+  background-image: url("pfp.png");
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#searchInput {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+}
+
+#linkList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 0;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #00063f;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.back-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.back-btn img {
+  height: 20px;
+  margin-right: 5px;
+}

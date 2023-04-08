@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Load URL</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+
+        border: 2px
+          linear-gradient(
+            90deg,
+            rgba(4, 0, 70, 0) 0%,
+            rgba(0, 189, 255, 1) 100%
+          );
+      }
+
+      #top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          341deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(0, 0, 158, 1) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+        z-index: 999;
+      }
+      #bottom-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        background: rgb(4, 0, 70);
+        background: linear-gradient(
+          341deg,
+          rgba(4, 0, 70, 1) 0%,
+          rgba(0, 0, 22, 1) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 10px;
+        box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.25);
+        z-index: 999;
+      }
+      #url-input {
+        flex-grow: 1;
+        margin: 0 10px;
+        padding: 5px;
+        box-shadow: 5px rgb(0, 0, 0);
+        background-color: black;
+        border: none;
+        border-radius: 50px;
+        font-size: 20px;
+      }
+      button {
+        padding: 5px 10px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.589);
+        border-radius: 50px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      #webpageholder {
+        margin-top: 70px;
+        height: 843px;
+        margin-bottom: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="top-bar">
+      <button id="back-button" disabled>&lt;</button>
+      <button id="forward-button" disabled>&gt;</button>
+      <input type="text" id="url-input" placeholder="Enter URL..." />
+      <button id="home-button">&#8962;</button>
+      <button id="reload-button">&#x21bb;</button>
+    </div>
+    <div id="webpageholder">
+      <iframe
+        id="targetFrame"
+        frameborder="0"
+        width="100%"
+        height="100%"
+      ></iframe>
+    </div>
+
+    <div id="bottom-bar">
+      <button id="close-button">(B) Exit</button>
+    </div>
+    <script>
+      const targetFrame = document.getElementById("targetFrame");
+      const backButton = document.getElementById("back-button");
+      const forwardButton = document.getElementById("forward-button");
+      const urlInput = document.getElementById("url-input");
+      const homeButton = document.getElementById("home-button");
+      const reloadButton = document.getElementById("reload-button");
+      const closeButton = document.getElementById("close-button");
+
+      // Keep track of the navigation history
+      const history = [];
+      let historyIndex = -1;
+
+      // Update the navigation buttons based on the history
+      function updateNavigationButtons() {
+        backButton.disabled = historyIndex <= 0;
+        forwardButton.disabled = historyIndex >= history.length - 1;
+      }
+
+      // Navigate to a URL
+      function navigateToUrl(url) {
+        targetFrame.src = url;
+        history.splice(historyIndex + 1);
+        history.push(url);
+        historyIndex = history.length - 1;
+        updateNavigationButtons();
+      }
+
+      // Load the home page
+      function loadHomePage() {
+        const googleWindow = window.open("https://www.google.com/", "_blank");
+      }
+
+      function closePage() {
+        window.close();
+      }
+
+      // Reload the current page
+      function reloadPage() {
+        targetFrame.contentWindow.location.reload();
+      }
+
+      // Handle navigation button clicks
+      backButton.addEventListener("click", () => {
+        if (historyIndex > 0) {
+          historyIndex--;
+          navigateToUrl(history[historyIndex]);
+        }
+      });
+
+      forwardButton.addEventListener("click", () => {
+        if (historyIndex < history.length - 1) {
+          historyIndex++;
+          navigateToUrl(history[historyIndex]);
+        }
+      });
+
+      // Handle URL input and form submission
+      const form = document.createElement("form");
+      urlInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          form.dispatchEvent(new Event("submit"));
+        }
+      });
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const url = urlInput.value;
+        navigateToUrl(url);
+        urlInput.blur();
+      });
+      urlInput.insertAdjacentElement("afterend", form);
+
+      // Handle button clicks
+      homeButton.addEventListener("click", loadHomePage);
+      reloadButton.addEventListener("click", reloadPage);
+      closeButton.addEventListener("click", closePage);
+
+      // Load the URL if specified in the query string
+      const urlParam = new URLSearchParams(window.location.search).get("url");
+      if (urlParam) {
+        navigateToUrl(urlParam);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  background: rgb(0, 26, 57);
+  background: linear-gradient(0deg, rgb(0, 14, 31) 0%, rgb(0, 10, 22) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.gamelist-container {
+  overflow: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  max-width: 98%;
+  height: 400px;
+  padding-left: 30px;
+}
+.gamelist-content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.gamelist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.gamelist li {
+  margin: 10px;
+  background: #181818;
+  border-radius: 1px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 10px;
+  margin-left: 30px;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+li:hover,
+li.selected {
+  background: #3b3b3b;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e8f4ab, 0 0 25px #03e8f4ab, 0 0 50px #03e8f4ab,
+    0 0 50px #03e8f4ab;
+  height: auto;
+  transform: scale(1.1);
+  border: 7px solid #c7fbff;
+}
+
+#addLink {
+  margin: 80px;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  font-size: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #181818;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#addLink:hover {
+  background: #3b3b3b;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+  height: auto;
+  transform: scale(1.1);
+  border: 7px solid #c7fbff;
+}
+
+.time-container {
+  padding-left: 70px;
+  padding-bottom: 0px;
+  font-size: 30px;
+  margin: 0;
+  flex-direction: row;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.329);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff98;
+}
+
+.selected {
+  background: #3b3b3b;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e8f4ab, 0 0 25px #03e8f4ab, 0 0 50px #03e8f4ab,
+    0 0 50px #03e8f4ab;
+  height: auto;
+  transform: scale(1.1);
+  border: 7px solid #c7fbff;
+}
